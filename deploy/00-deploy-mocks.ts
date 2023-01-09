@@ -3,13 +3,14 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
 import { developmentChains, GAS_PRICE_LINK, VRF_BASE_FEE } from "../helper-hardhat-config";
-import { network } from "hardhat";
+import { getChainId, network } from "hardhat";
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployments, getNamedAccounts } = hre;
   const { deploy, log } = deployments;
   const { deployer } = await getNamedAccounts();
   console.log("Network Name === ", network.name);
+  console.log("Network ChainId === ", await getChainId());
   if (developmentChains.includes(network.name)) {
     log("Local network detected! Deploying mocks...");
     await deploy("VRFCoordinatorV2Mock", {

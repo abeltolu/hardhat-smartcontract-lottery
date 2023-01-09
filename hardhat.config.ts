@@ -10,6 +10,10 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       chainId: 31337,
+      allowUnlimitedContractSize: true,
+    },
+    localhost: {
+      allowUnlimitedContractSize: true,
     },
     goerli: {
       url: process.env.GOERLI_RPC_URL,

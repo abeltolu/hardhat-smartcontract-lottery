@@ -35,4 +35,8 @@ export const DECIMALS = "8";
 export const INITIAL_ANSWER = 200000000000;
 export const VRF_BASE_FEE = ethers.utils.parseEther("0.25"); //0.25 is the premium. it costs 0.25 LINK per VRF request
 export const GAS_PRICE_LINK = 1e9; //1000000000
-export const VRF_SUB_FUND_AMOUNT = ethers.utils.parseEther("10");
+export const VRF_SUB_FUND_AMOUNT = ethers.utils.parseEther("50");
+
+//for Frontend
+export const frontEndContractsFile = "../nextjs-smartcontract-lottery/constants/contractAddresses.json";
+export const frontEndAbiFile = "../nextjs-smartcontract-lottery/constants/abi.json";

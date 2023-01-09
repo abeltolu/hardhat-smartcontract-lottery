@@ -43,6 +43,12 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   });
   log("Deployed Raffle...");
 
+  // Ensure the Raffle contract is a valid consumer of the VRFCoordinatorV2Mock contract.
+  if (developmentChains.includes(network.name)) {
+    const vrfCoordinatorV2Mock = await ethers.getContract("VRFCoordinatorV2Mock");
+    await vrfCoordinatorV2Mock.addConsumer(subscriptionId, raffle.address);
+  }
+
   if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
     await verifyContract(raffle.address, args);
     log("Verified on Etherscan!");
