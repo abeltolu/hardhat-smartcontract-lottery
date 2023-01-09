@@ -6,8 +6,7 @@ This project demonstrates a smart contract that allows users enter a raffle and 
 
 Create a `.env` file with the following information:
 
-```shell
-GOERLI_RPC_URL=
+```GOERLI_RPC_URL=
 GOERLI_PRIVATE_KEY=
 COINMARKETCAP_API_KEY=
 ETHERSCAN_API_KEY=
